@@ -55,8 +55,7 @@ public class SensorCalculations : MonoBehaviour
         
         rotationDiff.rotation = qDiff;
         var newDiff = qDiff * Vector3.up;
-
-        /* Correct Version:*/
+        
         var x = newDiff.x;
         var y = newDiff.y;
 
@@ -65,10 +64,13 @@ public class SensorCalculations : MonoBehaviour
         if (x < 0)
             angleZAxis *= -1;
 
-        var z = newDiff.z;
-        var angleXAxis = Vector3.Angle(new Vector3(0, y, z), Vector3.up);
+        var vRot = Quaternion.AngleAxis(angleZAxis, Vector3.forward) * newDiff;
+
+        var rotY = vRot.y;
+        var rotZ = vRot.z;
+        var angleXAxis = Vector3.Angle(new Vector3(0, rotY, rotZ), Vector3.up);
         
-        if (z < 0)
+        if (rotZ < 0)
             angleXAxis *= -1;
 
 
@@ -89,10 +91,10 @@ public class SensorCalculations : MonoBehaviour
 
         stage2.rotation = Quaternion.identity;
         stage2.Rotate(new Vector3(0,0,(float) -angleZAxis), Space.Self);
-        
+
         stage3.rotation = rotationDiff.rotation;
         stage3.Rotate(new Vector3(0,0,(float) angleZAxis), Space.World);
-        
+        //stage3.Rotate(new Vector3(-angleXAxis,0,0), Space.World); // If validating 2 axis fix
 
         txt.text = "Z-Axis Error: " + angleZAxis.ToString("0.00");
         txt2.text = "X-Axis Error: " + angleXAxis.ToString("0.00");;
