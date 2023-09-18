@@ -10,8 +10,8 @@ A demo created in Unity-3D that visualizes the concept and processing of the pro
 
 ## Sketches
 The sketches and plugins for Arduino:
-- DualSensor: The main sketch that runs on the Arduino Uno/OpenRB-150. It also contains a processing sketch for visualization of the sensors
-- DynamixelWizard: This must be uploaded if one wants to use the dynamixel wizard to control the *weight motor*
-- I2C_Scanner: Scan the correct I2C-Addresses of your board, to double-check that *DualSensor* uses the right ones
-- MotorConfiguration: Run this before you add the motor to the prototype. It ensures that the motor rotation is correct
-- MPU6050: This is **very important**. It is a library that must be placed in the *libraries* folder of Arduino. Otherwise, nothing works!
+- **DualSensor:** The main sketch that runs on the Arduino Uno/OpenRB-150. It also contains a processing sketch for visualization of the sensors
+- **DynamixelWizard:** This must be uploaded if one wants to use the dynamixel wizard to control the *weight motor*
+- **I2C_Scanner:** Scan the correct I2C-Addresses of your board, to double-check that *DualSensor* uses the right ones
+- **MotorConfiguration:** Run this before you add the motor to the prototype. It ensures that the motor rotation is correct
+- **MPU6050:** This is **very important**. It is a library that must be placed in the *libraries* folder of Arduino. Otherwise, nothing works!
